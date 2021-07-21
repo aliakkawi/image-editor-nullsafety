@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60ea1f31-da9d-4cdb-b4dd-df299f338ddb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/image_editor_pro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/image_editor_pro.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,51 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="null-safety" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin_new/null-safety" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="null-safety" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1sd2A3mVggRb0AEDSTO2Y0FKQmt" />
@@ -75,7 +120,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626840458671</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Null safety support.">
+      <created>1626840510615</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626840510615</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Null safety support.">
+      <created>1626840705801</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1626840705801</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -89,42 +148,50 @@
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="1290" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626823675488" />
-    <state x="1266" y="98" key="CommitChangelistDialog2" timestamp="1626840510475">
+    <state x="1266" y="98" key="CommitChangelistDialog2" timestamp="1626840705672">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1266" y="98" key="CommitChangelistDialog2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840510475" />
-    <state width="2237" height="102" key="GridCell.Tab.0.bottom" timestamp="1626840192817">
-      <screen x="0" y="25" width="2560" height="971" />
+    <state x="1266" y="98" key="CommitChangelistDialog2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840705672" />
+    <state width="1878" height="2" key="GridCell.Tab.0.bottom" timestamp="1626842680137">
+      <screen x="2560" y="85" width="1920" height="1055" />
     </state>
-    <state width="2237" height="102" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840192817" />
-    <state width="2237" height="102" key="GridCell.Tab.0.center" timestamp="1626840192816">
-      <screen x="0" y="25" width="2560" height="971" />
+    <state width="2237" height="328" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840643658" />
+    <state width="1878" height="2" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680137" />
+    <state width="1878" height="2" key="GridCell.Tab.0.center" timestamp="1626842680136">
+      <screen x="2560" y="85" width="1920" height="1055" />
     </state>
-    <state width="2237" height="102" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840192816" />
-    <state width="2237" height="102" key="GridCell.Tab.0.left" timestamp="1626840192816">
-      <screen x="0" y="25" width="2560" height="971" />
+    <state width="2237" height="328" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840643657" />
+    <state width="1878" height="2" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680136" />
+    <state width="1878" height="2" key="GridCell.Tab.0.left" timestamp="1626842680136">
+      <screen x="2560" y="85" width="1920" height="1055" />
     </state>
-    <state width="2237" height="102" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840192816" />
-    <state width="2237" height="102" key="GridCell.Tab.0.right" timestamp="1626840192817">
-      <screen x="0" y="25" width="2560" height="971" />
+    <state width="2237" height="328" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840643656" />
+    <state width="1878" height="2" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680136" />
+    <state width="1878" height="2" key="GridCell.Tab.0.right" timestamp="1626842680137">
+      <screen x="2560" y="85" width="1920" height="1055" />
     </state>
-    <state width="2237" height="102" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840192817" />
+    <state width="2237" height="328" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840643657" />
+    <state width="1878" height="2" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680137" />
     <state x="680" y="146" key="SettingsEditor" timestamp="1626838240882">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="680" y="146" key="SettingsEditor/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626838240882" />
-    <state x="1019" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626840635990">
+    <state x="1019" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626840761444">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1019" y="247" key="Vcs.Push.Dialog.v2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840635990" />
-    <state x="1283" y="265" width="602" height="490" key="find.popup" timestamp="1626835433772">
+    <state x="1019" y="247" key="Vcs.Push.Dialog.v2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840761444" />
+    <state x="1283" y="265" width="602" height="490" key="find.popup" timestamp="1626873676714">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1283" y="265" width="602" height="490" key="find.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626835433772" />
-    <state x="324" y="92" width="940" height="645" key="new project wizard" timestamp="1626834480395">
+    <state x="1283" y="265" width="602" height="490" key="find.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626873676714" />
+    <state x="1094" y="232" key="git4idea.branch.GitBranchIsNotFullyMergedDialog" timestamp="1626873318057">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="324" y="92" width="940" height="645" key="new project wizard/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626834480395" />
+    <state x="1094" y="232" key="git4idea.branch.GitBranchIsNotFullyMergedDialog/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626873318057" />
+    <state x="324" y="92" width="940" height="645" key="new project wizard" timestamp="1626841056379">
+      <screen x="0" y="25" width="2560" height="971" />
+    </state>
+    <state x="324" y="92" width="940" height="645" key="new project wizard/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626841056379" />
     <state x="836" y="238" width="670" height="676" key="search.everywhere.popup" timestamp="1626837467142">
       <screen x="0" y="25" width="2560" height="971" />
     </state>

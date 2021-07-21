@@ -140,6 +140,12 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         actions: <Widget>[
                           TextButton(
                             onPressed: () {
+                              var mHeight = int.tryParse(heightcontroler.text);
+                              var mWidth = int.tryParse(widthcontroler.text);
+                              if (mWidth == null || mHeight == null) {
+                                Navigator.pop(context);
+                                return;
+                              }
                               setState(() {
                                 height = int.parse(heightcontroler.text);
                                 width = int.parse(widthcontroler.text);
@@ -284,7 +290,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => TextEditorImage()));
-                      if (value['name'] == null) {
+                      if (value == null || value['name'] == null) {
                         print('true');
                       } else {
                         type.add(2);

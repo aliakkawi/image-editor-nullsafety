@@ -4,29 +4,28 @@ version: 1.1.8
 homepage: https://github.com/zeeshux7860/Image_editor_pro_package
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.20.0"
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  zoom_widget: ^0.1.3
-  font_awesome_flutter: ^9.0.0
-  image_picker: ^0.7.4
-  path_provider: ^2.0.1
-  permission_handler: ^7.0.0
+  cupertino_icons: ^1.0.3
+  zoom_widget: ^0.2.1
+  font_awesome_flutter: ^9.1.0
+  image_picker: ^0.8.2
+  path_provider: ^2.0.2
+  permission_handler: ^8.1.3
   dio: ^4.0.0
-  screenshot: ^0.3.0
-  signature: ^4.0.2
+  screenshot: ^1.2.3
+  signature: ^4.1.1
   flutter_colorpicker: ^0.4.0
-  firexcode: ^1.0.5
 
   flutter_web_plugins:
     sdk: flutter
   collection: ^1.15.0
 
 dev_dependencies:
-  pedantic: ^1.9.2
+  pedantic: ^1.11.1
 
   flutter_test:
     sdk: flutter

@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:firexcode/firexcode.dart';
+import 'package:flutter/material.dart';
 
 enum PickMode {
   Color,
@@ -48,7 +48,7 @@ class BarColorPicker extends StatefulWidget {
   final Color initialColor;
 
   BarColorPicker({
-    Key key,
+    Key? key,
     this.pickMode = PickMode.Color,
     this.horizontal = true,
     this.width = 200,
@@ -56,7 +56,7 @@ class BarColorPicker extends StatefulWidget {
     this.thumbRadius = 8,
     this.initialColor = const Color(0xffff0000),
     this.thumbColor = Colors.black,
-    @required this.colorListener,
+    required this.colorListener,
   })  : assert(pickMode != null),
         assert(horizontal != null),
         assert(width != null),
@@ -71,8 +71,8 @@ class BarColorPicker extends StatefulWidget {
 
 class _BarColorPickerState extends State<BarColorPicker> {
   double percent = 0.0;
-  List<Color> colors;
-  double barWidth, barHeight;
+  late List<Color> colors;
+  late double barWidth, barHeight;
 
   @override
   void initState() {
@@ -108,25 +108,31 @@ class _BarColorPickerState extends State<BarColorPicker> {
     final thumbRadius = widget.thumbRadius;
     final horizontal = widget.horizontal;
 
-    double thumbLeft, thumbTop;
+    double? thumbLeft, thumbTop;
     if (horizontal) {
       thumbLeft = barWidth * percent;
     } else {
       thumbTop = barHeight * percent;
     }
     // build thumb
-    var thumb = XContainer(
-      padding: EdgeInsets.zero,
-      width: thumbRadius * 2,
-      height: thumbRadius * 2,
-      shadowColor: _kThumbShadowColor,
-      spreadRadius: 2,
-      blurRadius: 3,
-      color: widget.thumbColor,
-      rounded: thumbRadius,
-    ).xPositioned(
+    var thumb = Positioned(
       left: thumbLeft,
       top: thumbTop,
+      child: Container(
+        padding: EdgeInsets.zero,
+        width: thumbRadius * 2,
+        height: thumbRadius * 2,
+        decoration: BoxDecoration(
+            color: widget.thumbColor,
+            borderRadius: BorderRadius.circular(thumbRadius),
+            boxShadow: [
+              BoxShadow(
+                color: _kThumbShadowColor,
+                blurRadius: 3,
+                spreadRadius: 2,
+              ),
+            ]),
+      ),
     );
 
     // build frame
@@ -155,29 +161,34 @@ class _BarColorPickerState extends State<BarColorPicker> {
       left = (thumbRadius * 2 - barWidth) / 2;
       top = thumbRadius;
     }
-    var content = XContainerGradient(
-      padding: EdgeInsets.zero,
-      width: barWidth,
-      height: barHeight,
-      rounded: widget.cornerRadius,
-      gradient: gradient,
-      child: ''.text(),
-    ).xPositioned(
-      left: left,
-      top: top,
-    );
+    var content = Positioned(
+        left: left,
+        top: top,
+        child: Container(
+          padding: EdgeInsets.zero,
+          width: barWidth,
+          height: barHeight,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(widget.cornerRadius),
+            gradient: gradient,
+          ),
+          child: Text(''),
+        ));
 
-    return xStack.list([frame, content, thumb]).xGesture(
+    return GestureDetector(
       onPanDown: (details) => handleTouch(details.globalPosition, context),
       onPanStart: (details) => handleTouch(details.globalPosition, context),
       onPanUpdate: (details) => handleTouch(details.globalPosition, context),
+      child: Stack(
+        children: [frame, content, thumb],
+      ),
     );
   }
 
   /// calculate colors picked from palette and update our states.
   void handleTouch(Offset globalPosition, BuildContext context) {
-    RenderBox box = context.findRenderObject();
-    var localPosition = box.globalToLocal(globalPosition);
+    var box = context.findRenderObject() as RenderBox?;
+    var localPosition = box!.globalToLocal(globalPosition);
     double percent;
     if (widget.horizontal) {
       percent = (localPosition.dx - widget.thumbRadius) / barWidth;
@@ -221,12 +232,12 @@ class CircleColorPicker extends StatefulWidget {
   final Color initialColor;
 
   CircleColorPicker(
-      {Key key,
+      {Key? key,
       this.radius = 120,
       this.initialColor = const Color(0xffff0000),
       this.thumbColor = Colors.black,
       this.thumbRadius = 8,
-      @required this.colorListener})
+      required this.colorListener})
       : assert(radius != null),
         assert(thumbColor != null),
         assert(colorListener != null),
@@ -249,8 +260,8 @@ class _CircleColorPickerState extends State<CircleColorPicker> {
     Color(0xffff0000)
   ];
 
-  double thumbDistanceToCenter;
-  double thumbRadians;
+  late double thumbDistanceToCenter;
+  late double thumbRadians;
 
   @override
   void initState() {
@@ -271,49 +282,57 @@ class _CircleColorPickerState extends State<CircleColorPicker> {
 
     // build thumb widget
     Widget thumb = Positioned(
-        child: XContainer(
-      padding: EdgeInsets.zero,
-      width: thumbRadius * 2,
-      height: thumbRadius * 2,
-      shadowColor: _kThumbShadowColor,
-      spreadRadius: 2,
-      blurRadius: 3,
-      color: widget.thumbColor,
-      rounded: thumbRadius,
-    ).xPositioned(
-      left: thumbCenterX,
-      top: thumbCenterY,
-    ));
-    return xStack.list(
-      [
-        SizedBox(
-            width: (radius + thumbRadius) * 2,
-            height: (radius + thumbRadius) * 2),
-        Positioned(
-          left: thumbRadius,
-          top: thumbRadius,
-          child: ''.text().xContainerGradient(
-                padding: EdgeInsets.zero,
-                width: radius * 2,
-                height: radius * 2,
-                rounded: radius,
-                gradient: SweepGradient(colors: colors),
-              ),
-        ),
-        thumb
-      ],
-    ).xGesture(
+        left: thumbCenterX,
+        top: thumbCenterY,
+        child: Container(
+          padding: EdgeInsets.zero,
+          width: thumbRadius * 2,
+          height: thumbRadius * 2,
+          decoration: BoxDecoration(
+              color: widget.thumbColor,
+              borderRadius: BorderRadius.circular(thumbRadius),
+              boxShadow: [
+                BoxShadow(
+                  color: _kThumbShadowColor,
+                  blurRadius: 3,
+                  spreadRadius: 2,
+                ),
+              ]),
+        ));
+    return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onPanDown: (details) => handleTouch(details.globalPosition, context),
       onPanStart: (details) => handleTouch(details.globalPosition, context),
       onPanUpdate: (details) => handleTouch(details.globalPosition, context),
+      child: Stack(
+        children: [
+          SizedBox(
+              width: (radius + thumbRadius) * 2,
+              height: (radius + thumbRadius) * 2),
+          Positioned(
+            left: thumbRadius,
+            top: thumbRadius,
+            child: Container(
+              padding: EdgeInsets.zero,
+              width: radius * 2,
+              height: radius * 2,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(radius),
+                gradient: SweepGradient(colors: colors),
+              ),
+              child: Text(''),
+            ),
+          ),
+          thumb
+        ],
+      ),
     );
   }
 
   /// calculate colors picked from palette and update our states.
   void handleTouch(Offset globalPosition, BuildContext context) {
-    RenderBox box = context.findRenderObject();
-    var localPosition = box.globalToLocal(globalPosition);
+    var box = context.findRenderObject() as RenderBox?;
+    var localPosition = box!.globalToLocal(globalPosition);
     final centerX = box.size.width / 2;
     final centerY = box.size.height / 2;
     final deltaX = localPosition.dx - centerX;

@@ -1,6 +1,6 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:image_editor_pro/image_editor_pro.dart';
-import 'package:firexcode/firexcode.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +9,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return HomePage().xMaterialApp();
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+    );
   }
 }
 
@@ -19,7 +26,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  File _image;
+  File? _image;
 
   Future<void> getimageditor() =>
       Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -27,6 +34,7 @@ class _HomePageState extends State<HomePage> {
           appBarColor: Colors.black87,
           bottomBarColor: Colors.black87,
           pathSave: null,
+          pixelRatio: null,
         );
       })).then((geteditimage) {
         if (geteditimage != null) {
@@ -40,22 +48,33 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return condition(
-            condtion: _image == null,
-            isTrue: 'Open Editor'.text().xRaisedButton(
-              onPressed: () {
-                getimageditor();
-              },
-            ).toCenter(),
-            isFalse:
-                _image == null ? Container() : Image.file(_image).toCenter())
-        .xScaffold(
-            appBar: 'Image Editor Pro example'.xTextColorWhite().xAppBar(),
-            floatingActionButton:
-                Icons.add.xIcons().xFloationActiobButton(color: Colors.red));
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Image Editor Pro example',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.red,
+        child: Icon(Icons.add),
+      ),
+      body: condition(
+          condtion: _image == null,
+          isTrue: Center(
+              child: ElevatedButton(
+            onPressed: () => getimageditor(),
+            child: Text('Open Editor'),
+          )),
+          isFalse: _image == null
+              ? Container()
+              : Center(child: Image.file(_image!))),
+    );
   }
 }
 
-Widget condition({bool condtion, Widget isTrue, Widget isFalse}) {
+Widget condition(
+    {required bool condtion, required Widget isTrue, required Widget isFalse}) {
   return condtion ? isTrue : isFalse;
 }

@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60ea1f31-da9d-4cdb-b4dd-df299f338ddb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/data.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/image_editor_pro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/image_editor_pro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/all_emojies.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +86,6 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -86,6 +97,17 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/example/assets/pngs" />
+      <recent name="$PROJECT_DIR$/assets/pngs" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/example/assets/pngs" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/example/assets" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -134,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626840705801</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Null safety support.">
+      <created>1626874033193</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626874033193</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -144,46 +173,46 @@
     <option name="LAST_COMMIT_MESSAGE" value="Null safety support." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1290" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1626823675488">
+    <state x="1290" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1626966352683">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1290" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626823675488" />
-    <state x="1266" y="98" key="CommitChangelistDialog2" timestamp="1626840705672">
+    <state x="1290" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626966352683" />
+    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2" timestamp="1626874033046">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1266" y="98" key="CommitChangelistDialog2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840705672" />
-    <state width="1878" height="2" key="GridCell.Tab.0.bottom" timestamp="1626842680137">
-      <screen x="2560" y="85" width="1920" height="1055" />
+    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626874033046" />
+    <state width="2189" height="102" key="GridCell.Tab.0.bottom" timestamp="1627044430327">
+      <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2237" height="328" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840643658" />
+    <state width="2189" height="102" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044430327" />
     <state width="1878" height="2" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680137" />
-    <state width="1878" height="2" key="GridCell.Tab.0.center" timestamp="1626842680136">
-      <screen x="2560" y="85" width="1920" height="1055" />
+    <state width="2189" height="102" key="GridCell.Tab.0.center" timestamp="1627044430326">
+      <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2237" height="328" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840643657" />
+    <state width="2189" height="102" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044430326" />
     <state width="1878" height="2" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680136" />
-    <state width="1878" height="2" key="GridCell.Tab.0.left" timestamp="1626842680136">
-      <screen x="2560" y="85" width="1920" height="1055" />
+    <state width="2189" height="102" key="GridCell.Tab.0.left" timestamp="1627044430325">
+      <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2237" height="328" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840643656" />
+    <state width="2189" height="102" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044430325" />
     <state width="1878" height="2" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680136" />
-    <state width="1878" height="2" key="GridCell.Tab.0.right" timestamp="1626842680137">
-      <screen x="2560" y="85" width="1920" height="1055" />
+    <state width="2189" height="102" key="GridCell.Tab.0.right" timestamp="1627044430326">
+      <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2237" height="328" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840643657" />
+    <state width="2189" height="102" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044430326" />
     <state width="1878" height="2" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680137" />
     <state x="680" y="146" key="SettingsEditor" timestamp="1626838240882">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="680" y="146" key="SettingsEditor/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626838240882" />
-    <state x="1019" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626840761444">
+    <state x="1019" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626874041615">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1019" y="247" key="Vcs.Push.Dialog.v2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626840761444" />
-    <state x="1283" y="265" width="602" height="490" key="find.popup" timestamp="1626873676714">
+    <state x="1019" y="247" key="Vcs.Push.Dialog.v2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626874041615" />
+    <state x="1283" y="265" width="602" height="490" key="find.popup" timestamp="1626966592097">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1283" y="265" width="602" height="490" key="find.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626873676714" />
+    <state x="1283" y="265" width="602" height="490" key="find.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626966592097" />
     <state x="1094" y="232" key="git4idea.branch.GitBranchIsNotFullyMergedDialog" timestamp="1626873318057">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
@@ -192,9 +221,9 @@
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="324" y="92" width="940" height="645" key="new project wizard/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626841056379" />
-    <state x="836" y="238" width="670" height="676" key="search.everywhere.popup" timestamp="1626837467142">
+    <state x="836" y="238" width="670" height="676" key="search.everywhere.popup" timestamp="1626947082530">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="836" y="238" width="670" height="676" key="search.everywhere.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626837467142" />
+    <state x="836" y="238" width="670" height="676" key="search.everywhere.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626947082530" />
   </component>
 </project>

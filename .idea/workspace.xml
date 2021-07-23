@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60ea1f31-da9d-4cdb-b4dd-df299f338ddb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/data.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/image_editor_pro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/image_editor_pro.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/all_emojies.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,52 +151,60 @@
       <option name="project" value="LOCAL" />
       <updated>1626874033193</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Null safety support Custom Image Editor.">
+      <created>1627044795606</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1627044795606</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Null safety support" />
     <MESSAGE value="Null safety support." />
-    <option name="LAST_COMMIT_MESSAGE" value="Null safety support." />
+    <MESSAGE value="Null safety support Custom Image Editor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Null safety support Custom Image Editor." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1290" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1626966352683">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="1290" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626966352683" />
-    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2" timestamp="1626874033046">
+    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2" timestamp="1627044795363">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626874033046" />
-    <state width="2189" height="102" key="GridCell.Tab.0.bottom" timestamp="1627044430327">
+    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044795363" />
+    <state width="2189" height="497" key="GridCell.Tab.0.bottom" timestamp="1627044912520">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2189" height="102" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044430327" />
+    <state width="2189" height="497" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044912520" />
     <state width="1878" height="2" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680137" />
-    <state width="2189" height="102" key="GridCell.Tab.0.center" timestamp="1627044430326">
+    <state width="2189" height="497" key="GridCell.Tab.0.center" timestamp="1627044912519">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2189" height="102" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044430326" />
+    <state width="2189" height="497" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044912519" />
     <state width="1878" height="2" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680136" />
-    <state width="2189" height="102" key="GridCell.Tab.0.left" timestamp="1627044430325">
+    <state width="2189" height="497" key="GridCell.Tab.0.left" timestamp="1627044912518">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2189" height="102" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044430325" />
+    <state width="2189" height="497" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044912518" />
     <state width="1878" height="2" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680136" />
-    <state width="2189" height="102" key="GridCell.Tab.0.right" timestamp="1627044430326">
+    <state width="2189" height="497" key="GridCell.Tab.0.right" timestamp="1627044912520">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2189" height="102" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044430326" />
+    <state width="2189" height="497" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044912520" />
     <state width="1878" height="2" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680137" />
     <state x="680" y="146" key="SettingsEditor" timestamp="1626838240882">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="680" y="146" key="SettingsEditor/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626838240882" />
-    <state x="1019" y="247" key="Vcs.Push.Dialog.v2" timestamp="1626874041615">
+    <state x="1019" y="247" key="Vcs.Push.Dialog.v2" timestamp="1627045017235">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1019" y="247" key="Vcs.Push.Dialog.v2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626874041615" />
+    <state x="1019" y="247" key="Vcs.Push.Dialog.v2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627045017235" />
     <state x="1283" y="265" width="602" height="490" key="find.popup" timestamp="1626966592097">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
@@ -217,6 +213,10 @@
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="1094" y="232" key="git4idea.branch.GitBranchIsNotFullyMergedDialog/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626873318057" />
+    <state x="1199" y="393" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1627044996169">
+      <screen x="0" y="25" width="2560" height="971" />
+    </state>
+    <state x="1199" y="393" key="git4idea.remote.GitConfigureRemotesDialog/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044996169" />
     <state x="324" y="92" width="940" height="645" key="new project wizard" timestamp="1626841056379">
       <screen x="0" y="25" width="2560" height="971" />
     </state>

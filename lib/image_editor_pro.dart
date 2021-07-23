@@ -130,7 +130,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
         final directory = await getApplicationDocumentsDirectory();
         final image = await File('${directory.path}/edit_image.png').create();
         final imageFile = await image.writeAsBytes(widget.imageData!);
-        print('path: ${imageFile.path}');
+        // print('path: ${imageFile.path}');
 
         var decodedImage =
             await decodeImageFromList(imageFile.readAsBytesSync());

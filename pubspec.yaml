@@ -12,10 +12,8 @@ dependencies:
   cupertino_icons: ^1.0.3
   zoom_widget: ^0.2.1
   font_awesome_flutter: ^9.1.0
-  image_picker: ^0.8.2
   path_provider: ^2.0.2
-  permission_handler: ^8.1.4
-  #dio: ^4.0.0
+  uuid: 3.0.4
   screenshot: ^1.2.3
   signature: ^4.1.1
   flutter_colorpicker: ^0.4.0

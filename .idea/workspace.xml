@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60ea1f31-da9d-4cdb-b4dd-df299f338ddb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/image_editor_pro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/image_editor_pro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/text.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627044795606</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Null safety support Custom Image Editor.">
+      <created>1627045205468</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1627045205468</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -173,42 +186,42 @@
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="1290" y="261" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626966352683" />
-    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2" timestamp="1627044795363">
+    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2" timestamp="1627045205324">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044795363" />
-    <state width="2189" height="497" key="GridCell.Tab.0.bottom" timestamp="1627044912520">
+    <state x="604" y="25" width="1790" height="970" key="CommitChangelistDialog2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627045205324" />
+    <state width="2518" height="59" key="GridCell.Tab.0.bottom" timestamp="1627171519300">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2189" height="497" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044912520" />
+    <state width="2518" height="59" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627171519300" />
     <state width="1878" height="2" key="GridCell.Tab.0.bottom/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680137" />
-    <state width="2189" height="497" key="GridCell.Tab.0.center" timestamp="1627044912519">
+    <state width="2518" height="59" key="GridCell.Tab.0.center" timestamp="1627171519299">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2189" height="497" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044912519" />
+    <state width="2518" height="59" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627171519299" />
     <state width="1878" height="2" key="GridCell.Tab.0.center/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680136" />
-    <state width="2189" height="497" key="GridCell.Tab.0.left" timestamp="1627044912518">
+    <state width="2518" height="59" key="GridCell.Tab.0.left" timestamp="1627171519299">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2189" height="497" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044912518" />
+    <state width="2518" height="59" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627171519299" />
     <state width="1878" height="2" key="GridCell.Tab.0.left/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680136" />
-    <state width="2189" height="497" key="GridCell.Tab.0.right" timestamp="1627044912520">
+    <state width="2518" height="59" key="GridCell.Tab.0.right" timestamp="1627171519300">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state width="2189" height="497" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627044912520" />
+    <state width="2518" height="59" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627171519300" />
     <state width="1878" height="2" key="GridCell.Tab.0.right/2560.85.1920.1055/0.25.2560.971@2560.85.1920.1055" timestamp="1626842680137" />
     <state x="680" y="146" key="SettingsEditor" timestamp="1626838240882">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="680" y="146" key="SettingsEditor/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626838240882" />
-    <state x="1019" y="247" key="Vcs.Push.Dialog.v2" timestamp="1627045017235">
+    <state x="1019" y="247" key="Vcs.Push.Dialog.v2" timestamp="1627045207024">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1019" y="247" key="Vcs.Push.Dialog.v2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627045017235" />
-    <state x="1283" y="265" width="602" height="490" key="find.popup" timestamp="1626966592097">
+    <state x="1019" y="247" key="Vcs.Push.Dialog.v2/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627045207024" />
+    <state x="1283" y="265" width="605" height="490" key="find.popup" timestamp="1627168877565">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="1283" y="265" width="602" height="490" key="find.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626966592097" />
+    <state x="1283" y="265" width="605" height="490" key="find.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627168877565" />
     <state x="1094" y="232" key="git4idea.branch.GitBranchIsNotFullyMergedDialog" timestamp="1626873318057">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
@@ -221,9 +234,9 @@
       <screen x="0" y="25" width="2560" height="971" />
     </state>
     <state x="324" y="92" width="940" height="645" key="new project wizard/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626841056379" />
-    <state x="836" y="238" width="670" height="676" key="search.everywhere.popup" timestamp="1626947082530">
+    <state x="836" y="238" width="670" height="676" key="search.everywhere.popup" timestamp="1627165771839">
       <screen x="0" y="25" width="2560" height="971" />
     </state>
-    <state x="836" y="238" width="670" height="676" key="search.everywhere.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1626947082530" />
+    <state x="836" y="238" width="670" height="676" key="search.everywhere.popup/2560.85.1920.1055/0.25.2560.971@0.25.2560.971" timestamp="1627165771839" />
   </component>
 </project>

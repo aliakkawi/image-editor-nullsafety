@@ -61,10 +61,8 @@ class _TextEditorImageState extends State<TextEditorImage> {
         color: Colors.white,
         child: TextButton(
           style: TextButton.styleFrom(
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.amber,
             padding: EdgeInsets.all(15),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
           onPressed: () {
             Navigator.pop(context, {

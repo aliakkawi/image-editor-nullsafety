@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 import 'dart:typed_data';
 import 'dart:ui';
 
@@ -9,24 +10,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_editor_pro/modules/sliders.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:image_editor_pro/modules/emoji.dart';
 import 'package:image_editor_pro/modules/text.dart';
 import 'package:image_editor_pro/modules/textview.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:signature/signature.dart';
+import 'package:uuid/uuid.dart';
 import 'dart:math' as math;
 
 import 'modules/color_filter_generator.dart';
 import 'modules/colors_picker.dart'; // import this
 
 List<Map> widgetJson = [];
-//List fontsize = [];
-//List<Color> colorList = [];
 var howmuchwidgetis = 0;
-//List multiwidget = [];
 Color currentcolors = Colors.white;
 var opicity = 0.0;
 var width = 300;
@@ -37,7 +34,6 @@ SignatureController _controller =
 class ImageEditorPro extends StatefulWidget {
   final Directory? pathSave;
   final double? pixelRatio;
-  //final Uint8List? imageData;
   final Uint8List? imageData;
 
   ImageEditorPro(
@@ -58,10 +54,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   TextEditingController heightcontroler = TextEditingController();
   TextEditingController widthcontroler = TextEditingController();
 
-  late Image _myImage;
-
-// ValueChanged<Color> callback
-  void changeColor(Color color) {
+  void _changeColor(Color color) {
     setState(() => pickerColor = color);
     var points = _controller.points;
     _controller =
@@ -79,30 +72,24 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 
   final GlobalKey container = GlobalKey();
   final GlobalKey globalKey = GlobalKey();
-  File? _image;
+
   ScreenshotController screenshotController = ScreenshotController();
-  late Timer timeprediction;
 
-  void timers() {
-    Timer.periodic(Duration(milliseconds: 10), (tim) {
-      setState(() {});
-      timeprediction = tim;
-    });
-  }
+  double flipValue = 0;
+  int rotateValue = 0;
+  double blurValue = 0;
+  double opacityValue = 0;
+  Color colorValue = Colors.transparent;
 
-  @override
-  void dispose() {
-    timeprediction.cancel();
-    _controller.clear();
-    widgetJson.clear();
-    heightcontroler.clear();
-    widthcontroler.clear();
-    super.dispose();
-  }
+  double hueValue = 0;
+  double brightnessValue = 0;
+  double saturationValue = 0;
+  File? _image;
+  File? _imageFile;
+  bool _isLoading = true;
 
   @override
   void initState() {
-    timers();
     _controller.clear();
     type.clear();
     //  fontsize.clear();
@@ -114,32 +101,34 @@ class _ImageEditorProState extends State<ImageEditorPro> {
     super.initState();
   }
 
-  double flipValue = 0;
-  int rotateValue = 0;
-  double blurValue = 0;
-  double opacityValue = 0;
-  Color colorValue = Colors.transparent;
-
-  double hueValue = 0;
-  double brightnessValue = 0;
-  double saturationValue = 0;
+  @override
+  void dispose() {
+    _controller.clear();
+    widgetJson.clear();
+    heightcontroler.clear();
+    widthcontroler.clear();
+    super.dispose();
+  }
 
   void _loadImage() async {
     try {
       if (widget.imageData != null) {
         final directory = await getApplicationDocumentsDirectory();
-        final image = await File('${directory.path}/edit_image.png').create();
-        final imageFile = await image.writeAsBytes(widget.imageData!);
-        // print('path: ${imageFile.path}');
+        final uuid = Uuid().v4().substring(0, 11);
+        final imageCreate = await File('${directory.path}/$uuid}.png').create();
+        _imageFile = await imageCreate.writeAsBytes(widget.imageData!);
 
-        var decodedImage =
-            await decodeImageFromList(imageFile.readAsBytesSync());
+        if (_imageFile != null) {
+          var decodedImage =
+              await decodeImageFromList(_imageFile!.readAsBytesSync());
 
-        setState(() {
-          height = decodedImage.height;
-          width = decodedImage.width;
-          _image = imageFile;
-        });
+          setState(() {
+            height = decodedImage.height;
+            width = decodedImage.width;
+            _isLoading = false;
+            _image = _imageFile;
+          });
+        }
       }
     } catch (err) {
       print('error convert image to file: $err');
@@ -148,237 +137,251 @@ class _ImageEditorProState extends State<ImageEditorPro> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black87,
-      appBar: AppBar(
-        brightness: Brightness.dark,
+    return WillPopScope(
+      onWillPop: () async {
+        if (_imageFile != null) {
+          await _imageFile!.delete();
+          print('file deleted');
+        }
+
+        return true;
+      },
+      child: Scaffold(
         backgroundColor: Colors.black87,
-        actions: [
-          IconButton(
-              onPressed: () {
-                _controller.points.clear();
-                var imageDataMap = <String, dynamic>{
-                  'image_data': null,
-                  'should_delete': true
-                };
+        appBar: AppBar(
+          brightness: Brightness.dark,
+          backgroundColor: Colors.black87,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  _controller.points.clear();
+                  var imageDataMap = <String, dynamic>{
+                    'image_data': null,
+                    'should_delete': true
+                  };
 
-                Navigator.pop(context, imageDataMap);
-              },
-              icon: Icon(Icons.delete_outline)),
-          // IconButton(
-          //     onPressed: () {
-          //       bottomsheets();
-          //     },
-          //     icon: Icon(Icons.camera_alt)),
-          IconButton(
-              onPressed: () => _addText(), icon: Icon(Icons.text_fields)),
-          IconButton(
-              onPressed: () => _displayBrushDialog(),
-              icon: Icon(Icons.edit_outlined)),
-          PopupMenuButton<int>(
-            itemBuilder: (context) => [
-              PopupMenuItem<int>(
-                value: 0,
-                child: Icon(
-                  Icons.rotate_left,
-                  color: Colors.white,
-                  size: 30,
+                  Navigator.pop(context, imageDataMap);
+                },
+                icon: Icon(Icons.delete_outline)),
+            // IconButton(
+            //     onPressed: () {
+            //       bottomsheets();
+            //     },
+            //     icon: Icon(Icons.camera_alt)),
+            IconButton(
+                onPressed: () => _addText(), icon: Icon(Icons.text_fields)),
+            IconButton(
+                onPressed: () => _displayBrushDialog(),
+                icon: Icon(Icons.edit_outlined)),
+            PopupMenuButton<int>(
+              itemBuilder: (context) => [
+                PopupMenuItem<int>(
+                  value: 0,
+                  child: Icon(
+                    Icons.rotate_left,
+                    color: Colors.white,
+                    size: 30,
+                  ),
                 ),
-              ),
-              PopupMenuItem<int>(
-                value: 1,
-                child: Icon(
-                  Icons.rotate_right,
-                  color: Colors.white,
-                  size: 30,
+                PopupMenuItem<int>(
+                  value: 1,
+                  child: Icon(
+                    Icons.rotate_right,
+                    color: Colors.white,
+                    size: 30,
+                  ),
                 ),
-              ),
-              // PopupMenuItem<int>(
-              //   value: 2,
-              //   child: Icon(
-              //     Icons.flip,
-              //     color: Colors.white,
-              //     size: 30,
-              //   ),
-              // ),
-              PopupMenuItem<int>(
-                value: 3,
-                child: Icon(
-                  FontAwesomeIcons.boxes,
-                  color: Colors.white,
-                  size: 28,
+                // PopupMenuItem<int>(
+                //   value: 2,
+                //   child: Icon(
+                //     Icons.flip,
+                //     color: Colors.white,
+                //     size: 30,
+                //   ),
+                // ),
+                PopupMenuItem<int>(
+                  value: 3,
+                  child: Icon(
+                    FontAwesomeIcons.boxes,
+                    color: Colors.white,
+                    size: 28,
+                  ),
                 ),
-              ),
-              PopupMenuItem<int>(
-                value: 4,
-                child: Icon(
-                  FontAwesomeIcons.eraser,
-                  color: Colors.white,
-                  size: 28,
+                PopupMenuItem<int>(
+                  value: 4,
+                  child: Icon(
+                    FontAwesomeIcons.eraser,
+                    color: Colors.white,
+                    size: 28,
+                  ),
                 ),
-              ),
-              PopupMenuItem<int>(
-                value: 5,
-                child: Icon(
-                  Icons.filter,
-                  color: Colors.white,
-                  size: 30,
+                PopupMenuItem<int>(
+                  value: 5,
+                  child: Icon(
+                    Icons.filter,
+                    color: Colors.white,
+                    size: 30,
+                  ),
                 ),
-              ),
-              PopupMenuItem<int>(
-                value: 6,
-                child: Icon(
-                  Icons.blur_on,
-                  color: Colors.white,
-                  size: 30,
+                PopupMenuItem<int>(
+                  value: 6,
+                  child: Icon(
+                    Icons.blur_on,
+                    color: Colors.white,
+                    size: 30,
+                  ),
                 ),
-              ),
-            ],
-            iconSize: 30.0,
-            color: Colors.black87,
-            onSelected: (int val) => onMenuItemSelected(val),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _saveChanges(),
-        backgroundColor: Color(0xFF0078BF),
-        child: Icon(
-          FontAwesomeIcons.check,
-          color: Colors.white,
+              ],
+              iconSize: 30.0,
+              color: Colors.black87,
+              onSelected: (int val) => onMenuItemSelected(val),
+            ),
+          ],
         ),
-      ),
-      body:
-          // Image(
-          //   image: MemoryImage(widget.imageData!),
-          // )
-          Screenshot(
-        controller: screenshotController,
-        child: RotatedBox(
-          quarterTurns: rotateValue,
-          child: imageFilterLatest(
-            hue: hueValue,
-            brightness: brightnessValue,
-            saturation: saturationValue,
-            child: Container(
-              margin: EdgeInsets.all(20),
-              color: Colors.white,
-              width: width.toDouble(),
-              height: height.toDouble(),
-              child: RepaintBoundary(
-                key: globalKey,
-                child: Stack(
-                  children: [
-                    _image != null
-                        ? Transform(
-                            alignment: Alignment.center,
-                            transform: Matrix4.rotationY(flipValue),
-                            child: ClipRect(
-                              // <-- clips to the 200x200 [Container] below
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => _saveChanges(),
+          backgroundColor: Color(0xFF0078BF),
+          child: Icon(
+            FontAwesomeIcons.check,
+            color: Colors.white,
+          ),
+        ),
+        body: Screenshot(
+          controller: screenshotController,
+          child: RotatedBox(
+            quarterTurns: rotateValue,
+            child: imageFilterLatest(
+              hue: hueValue,
+              brightness: brightnessValue,
+              saturation: saturationValue,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                color: Colors.white,
+                width: width.toDouble(),
+                height: height.toDouble(),
+                child: RepaintBoundary(
+                  key: globalKey,
+                  child: Stack(
+                    children: [
+                      _image != null
+                          ? Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.rotationY(flipValue),
+                              child: ClipRect(
+                                // <-- clips to the 200x200 [Container] below
 
-                              child: Container(
-                                padding: EdgeInsets.zero,
-                                // alignment: Alignment.center,
-                                width: width.toDouble(),
-                                height: height.toDouble(),
+                                child: Container(
+                                  padding: EdgeInsets.zero,
+                                  // alignment: Alignment.center,
+                                  width: width.toDouble(),
+                                  height: height.toDouble(),
 
-                                decoration: _image == null
-                                    ? null
-                                    : BoxDecoration(
-                                        image: DecorationImage(
-                                            image: FileImage(
-                                              File(_image!.path),
-                                            ),
-                                            fit: BoxFit.cover)),
+                                  decoration: _image == null
+                                      ? null
+                                      : BoxDecoration(
+                                          image: DecorationImage(
+                                              image: FileImage(
+                                                File(_image!.path),
+                                              ),
+                                              fit: BoxFit.cover)),
 
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: blurValue,
-                                    sigmaY: blurValue,
-                                  ),
-                                  child: Container(
-                                    color: colorValue.withOpacity(opacityValue),
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: blurValue,
+                                      sigmaY: blurValue,
+                                    ),
+                                    child: Container(
+                                      color:
+                                          colorValue.withOpacity(opacityValue),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          )
-                        : Container(),
-                    Container(
-                      padding: EdgeInsets.all(0.0),
-                      child: GestureDetector(
-                          onPanUpdate: (DragUpdateDetails details) {
-                            setState(() {
-                              var object =
-                                  context.findRenderObject() as RenderBox?;
-                              var _localPosition =
-                                  object?.globalToLocal(details.globalPosition);
-                              _points = List.from(_points)..add(_localPosition);
-                            });
-                          },
-                          onPanEnd: (DragEndDetails details) {
-                            _points.add(null);
-                          },
-                          child: Signat()),
-                    ),
-                    Stack(
-                      children: widgetJson.asMap().entries.map((f) {
-                        return type[f.key] == 1
-                            ? EmojiView(
-                                left: offsets[f.key].dx,
-                                top: offsets[f.key].dy,
-                                ontap: () {
-                                  scaf.currentState?.showBottomSheet((context) {
-                                    return Sliders(
-                                      index: f.key,
-                                      mapValue: f.value,
-                                    );
-                                  });
-                                },
-                                onpanupdate: (details) {
-                                  setState(() {
-                                    offsets[f.key] = Offset(
-                                        offsets[f.key].dx + details.delta.dx,
-                                        offsets[f.key].dy + details.delta.dy);
-                                  });
-                                },
-                                mapJson: f.value,
-                              )
-                            : type[f.key] == 2
-                                ? TextView(
-                                    left: offsets[f.key].dx,
-                                    top: offsets[f.key].dy,
-                                    ontap: () {
-                                      showModalBottomSheet(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(10),
-                                              topLeft: Radius.circular(10),
+                            )
+                          : Container(),
+                      Container(
+                        padding: EdgeInsets.all(0.0),
+                        child: GestureDetector(
+                            onPanUpdate: (DragUpdateDetails details) {
+                              setState(() {
+                                var object =
+                                    context.findRenderObject() as RenderBox?;
+                                var _localPosition = object
+                                    ?.globalToLocal(details.globalPosition);
+                                _points = List.from(_points)
+                                  ..add(_localPosition);
+                              });
+                            },
+                            onPanEnd: (DragEndDetails details) {
+                              _points.add(null);
+                            },
+                            child: Signat()),
+                      ),
+                      Stack(
+                        children: widgetJson.asMap().entries.map((f) {
+                          return type[f.key] == 1
+                              ? EmojiView(
+                                  left: offsets[f.key].dx,
+                                  top: offsets[f.key].dy,
+                                  ontap: () {
+                                    scaf.currentState
+                                        ?.showBottomSheet((context) {
+                                      return Sliders(
+                                        index: f.key,
+                                        mapValue: f.value,
+                                      );
+                                    });
+                                  },
+                                  onpanupdate: (details) {
+                                    setState(() {
+                                      offsets[f.key] = Offset(
+                                          offsets[f.key].dx + details.delta.dx,
+                                          offsets[f.key].dy + details.delta.dy);
+                                    });
+                                  },
+                                  mapJson: f.value,
+                                )
+                              : type[f.key] == 2
+                                  ? TextView(
+                                      left: offsets[f.key].dx,
+                                      top: offsets[f.key].dy,
+                                      ontap: () {
+                                        showModalBottomSheet(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                topRight: Radius.circular(10),
+                                                topLeft: Radius.circular(10),
+                                              ),
                                             ),
-                                          ),
-                                          context: context,
-                                          builder: (context) {
-                                            return Sliders(
-                                              index: f.key,
-                                              mapValue: f.value,
-                                            );
-                                          });
-                                    },
-                                    onpanupdate: (details) {
-                                      setState(() {
-                                        offsets[f.key] = Offset(
-                                            offsets[f.key].dx +
-                                                details.delta.dx,
-                                            offsets[f.key].dy +
-                                                details.delta.dy);
-                                      });
-                                    },
-                                    mapJson: f.value,
-                                  )
-                                : Container();
-                      }).toList(),
-                    ),
-                  ],
+                                            context: context,
+                                            builder: (context) {
+                                              return Sliders(
+                                                index: f.key,
+                                                mapValue: f.value,
+                                              );
+                                            });
+                                      },
+                                      onpanupdate: (details) {
+                                        setState(() {
+                                          offsets[f.key] = Offset(
+                                              offsets[f.key].dx +
+                                                  details.delta.dx,
+                                              offsets[f.key].dy +
+                                                  details.delta.dy);
+                                        });
+                                      },
+                                      mapJson: f.value,
+                                    )
+                                  : Container();
+                        }).toList(),
+                      ),
+                      if (_isLoading) ...[
+                        Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      ]
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -387,8 +390,6 @@ class _ImageEditorProState extends State<ImageEditorPro> {
       ),
     );
   }
-
-  final picker = ImagePicker();
 
   void _closeModal(void value) {
     openbottomsheet = false;
@@ -508,7 +509,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
           content: SingleChildScrollView(
             child: ColorPicker(
               pickerColor: pickerColor,
-              onColorChanged: changeColor,
+              onColorChanged: _changeColor,
               showLabel: true,
               pickerAreaHeightPercent: 0.8,
             ),
@@ -530,16 +531,16 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   void _addText() async {
     var value = await Navigator.push(
         context, MaterialPageRoute(builder: (context) => TextEditorImage()));
-    if (value == null || value['name'] == null) {
-      print('true');
-    } else {
+    if (value != null && value['name'] != null) {
       type.add(2);
       widgetJson.add(value);
       // fontsize.add(20);
       offsets.add(Offset.zero);
       //  colorList.add(value['color']);
       //    multiwidget.add(value['name']);
-      howmuchwidgetis++;
+      setState(() {
+        howmuchwidgetis++;
+      });
     }
   }
 
@@ -553,6 +554,9 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   }
 
   void _saveChanges() {
+    if (_isLoading) {
+      return;
+    }
     screenshotController
         .capture(pixelRatio: widget.pixelRatio ?? 1.5)
         .then((binaryIntList) async {

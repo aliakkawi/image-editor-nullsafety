@@ -28,12 +28,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Uint8List? _image;
+  int counter = 0;
+  List<String> urls = [
+    'https://fdr-cover-images.imgix.net/2020/04/2poRcBXr-free-office-macbook-pro-mockup-Designrepos-090420.jpg?auto=format&ixlib=php-3.3.0&s=08852a4122c2c4b87ca814f621ddcccf',
+    'https://previews.123rf.com/images/aquir/aquir1311/aquir131100316/23569861-sample-grunge-red-round-stamp.jpg'
+  ];
 
-  Future<void> getimageditor() async {
+  Future<void> _getimageditor() async {
+    if (counter >= urls.length) {
+      print('no more images');
+      return;
+    }
     try {
+      var currentUrl = urls[counter];
       var response = await http.get(
-        Uri.parse(
-            'https://fdr-cover-images.imgix.net/2020/04/2poRcBXr-free-office-macbook-pro-mockup-Designrepos-090420.jpg?auto=format&ixlib=php-3.3.0&s=08852a4122c2c4b87ca814f621ddcccf'),
+        Uri.parse(currentUrl),
       );
 
       final uint8List = response.bodyBytes;
@@ -45,6 +54,7 @@ class _HomePageState extends State<HomePage> {
           imageData: uint8List,
         );
       })).then((imageDataMap) {
+        counter = counter + 1;
         if (imageDataMap != null) {
           final Uint8List? imageData = imageDataMap['image_data'];
           final bool? shouldDelete = imageDataMap['should_delete'];
@@ -67,28 +77,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Image Editor Pro example',
-          style: TextStyle(color: Colors.white),
+        appBar: AppBar(
+          title: Text(
+            'Image Editor Pro example',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.red,
-        child: Icon(Icons.add),
-      ),
-      body: condition(
-          condtion: _image == null,
-          isTrue: Center(
-              child: ElevatedButton(
-            onPressed: () => getimageditor(),
-            child: Text('Open Editor'),
-          )),
-          isFalse: _image == null
-              ? Container()
-              : Center(child: Image.memory(_image!))),
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => _getimageditor(),
+          backgroundColor: Colors.red,
+          child: Icon(Icons.add),
+        ),
+        body: _image == null
+            ? Container()
+            : Center(
+                child: Image.memory(_image!),
+              ));
   }
 }
 
